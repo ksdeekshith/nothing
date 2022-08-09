@@ -1,1 +1,1 @@
-hello, welcome to git. Make it FUNgit status!
+hello, welcome to git. Make it FUN!
