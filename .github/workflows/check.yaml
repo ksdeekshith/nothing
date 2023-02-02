@@ -18,6 +18,8 @@ jobs:
 
           run: |
             python3 --version
+            dnf install -y which 
             yum install -y python3.9
+            python3 --version
             which python
             
