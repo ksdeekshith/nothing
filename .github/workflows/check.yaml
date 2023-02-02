@@ -1,0 +1,23 @@
+name: Check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: uraimo/run-on-arch-action@v2.2.0
+        name: test
+        id: fedora_check
+        with:
+          arch: s390x
+          distro: fedora_latest
+
+          run: |
+            python3 --version
+            yum install -y python3.9
+            which python
+            
