@@ -21,5 +21,7 @@ jobs:
             dnf install -y which 
             yum install -y python3.9
             python3 --version
-            which python
+            echo $PATH
+            which python3
+
             
