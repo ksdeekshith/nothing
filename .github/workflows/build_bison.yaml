@@ -35,11 +35,12 @@ jobs:
             add-apt-repository ppa:deadsnakes/ppa -y
             apt-get install python3.9 python3-pip python3-dev libpython3.9-dev -y
             
-            #Building grpc
+            #Building bison
             echo "Building grpc ${{ inputs.release }}"
             python3.9 -m pip install --upgrade pip
             python3.9 -m pip install -U wheel setuptools
             python3.9 -m pip install --only-binary :all bison==${{ inputs.release }}
+            pip download bison -d wheels
             
             WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "grpcio*.whl")
             WHEEL_NAME=$(basename $(find /root/.cache/pip/wheels/ -name "grpcio*.whl"))
