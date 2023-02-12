@@ -1,0 +1,37 @@
+name: Check for new bison release
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-release:
+    runs-on: ubuntu-20.04
+    
+    outputs:
+      latest-release: ${{ steps.latest.outputs.LATEST_RELEASE }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: update
+        id: get-update
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y curl jq
+          
+      - name: Get latest bison release
+        id: latest
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y curl jq
+          
+          BISON_LATEST=$(curl -s https://pypi.org/pypi/bison/json | jq -r '.info.version')
+          echo '::set-output name=LATEST_RELEASE::'$BISON_LATEST
+          echo "Latest bison version: $BISON_LATEST"
+
+  build-new-release:
+    needs: [check-release]
+    uses: ./.github/workflows/build_bison.yaml
+    with:
+      release: ${{ needs.check-release.outputs.latest-release }}
