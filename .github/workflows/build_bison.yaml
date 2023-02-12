@@ -42,8 +42,8 @@ jobs:
             python3.9 -m pip install --only-binary :all bison==${{ inputs.release }}
             pip download bison -d wheels
             
-            WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "grpcio*.whl")
-            WHEEL_NAME=$(basename $(find /root/.cache/pip/wheels/ -name "grpcio*.whl"))
+            WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "bison-*.whl")
+            WHEEL_NAME=$(basename $(find /root/.cache/pip/wheels/ -name "bison-*.whl"))
             echo $WHEEL_PATH
             echo $WHEEL_NAME
             cp $WHEEL_PATH /artifacts/$WHEEL_NAME
