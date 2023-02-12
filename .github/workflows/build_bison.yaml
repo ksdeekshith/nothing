@@ -39,7 +39,7 @@ jobs:
             echo "Building grpc ${{ inputs.release }}"
             python3.9 -m pip install --upgrade pip
             python3.9 -m pip install -U wheel setuptools
-            python3.9 -m pip install --only-binary :all bison==${{ inputs.release }}
+            python3.9 -m pip install bison==${{ inputs.release }}
             pip download bison -d wheels
             
             WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "bison-*.whl")
