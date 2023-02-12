@@ -41,6 +41,7 @@ jobs:
             python3.9 -m pip install -U wheel setuptools
             python3.9 -m pip install bison==${{ inputs.release }}
             pip download bison -d wheels
+            pip download bison -d wheels
             
             WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "bison-*.whl")
             WHEEL_NAME=$(basename $(find /root/.cache/pip/wheels/ -name "bison-*.whl"))
