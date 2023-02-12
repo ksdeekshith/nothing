@@ -43,8 +43,8 @@ jobs:
             pip download bison -d wheels
             pip download bison -d wheels
             
-            WHEEL_PATH=$(find /root/.cache/pip/wheels/ -name "bison-*.whl")
-            WHEEL_NAME=$(basename $(find /root/.cache/pip/wheels/ -name "bison-*.whl"))
+            WHEEL_PATH=$(find / -name "bison-*.whl")
+            WHEEL_NAME=$(basename $(find / -name "bison-*.whl"))
             echo $WHEEL_PATH
             echo $WHEEL_NAME
             cp $WHEEL_PATH /artifacts/$WHEEL_NAME
