@@ -50,18 +50,7 @@ jobs:
             cd ..
             
             #creating setup.py for creating wheel for bison
-            echo "\
-            from setuptools import setup
-            setup(
-              name='bison',
-              version='3.8.2',
-              description='The GNU Parser Generator',
-              author='GNU Project',
-              author_email='bug-bison@gnu.org',
-              url='https://www.gnu.org/software/bison/',
-              packages=['build_bison'],
-              install_requires=[],
-            )" >> setup.py
+            echo -e "\nfrom setuptools import setup\nsetup(\n  name='bison',\n  version='3.8',\n  description='The GNU Parser Generator',\n  author='GNU Project',\n  url='https://www.gnu.org/software/bison/',\n  packages=['build_bison'],\n  install_requires=[],\n)" >> setup.py
             
             #creating wheel for bison latest version
             python3.9 setup.py bdist_wheel
