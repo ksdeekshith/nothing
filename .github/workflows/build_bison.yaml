@@ -30,6 +30,7 @@ jobs:
             
       
           run: |   
+            bison --version
             apt-get update -y
             apt-get install -y build-essential autoconf libtool pkg-config git software-properties-common curl wget 
             add-apt-repository ppa:deadsnakes/ppa -y
