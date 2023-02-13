@@ -18,14 +18,11 @@ jobs:
         id: get-update
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y curl jq
+          sudo apt-get install -y curl
           
       - name: Get latest bison release
         id: latest
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y curl jq
-          
           BISON_LATEST=$(curl -s https://ftp.gnu.org/gnu/bison/ | grep -o '[0-9]\.[0-9]\.[0-9]' | sort -V | tail -n 1)
           echo '::set-output name=LATEST_RELEASE::'$BISON_LATEST
           echo "Latest bison version: $BISON_LATEST"
