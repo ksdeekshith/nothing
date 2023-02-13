@@ -83,7 +83,7 @@ jobs:
           tag: ${{ inputs.release }}
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
-          artifacts: ./artifacts/bison-${{ inputs.release }}-py2.py3-none-any.whl
+          artifacts: ./artifacts/bison-${{ inputs.release }}*.whl
           name: ${{ inputs.release }}
           replacesArtifacts: true
           draft: false
