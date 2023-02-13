@@ -36,7 +36,7 @@ jobs:
             apt-get install python3.9 python3-pip python3-dev libpython3.9-dev -y
             
             #Downloading bison latest package and Installing dependencies
-            bison --version
+            #bison --version
             echo "Building grpc ${{ inputs.release }}"
             python3.9 -m pip install --upgrade pip
             python3.9 -m pip install -U wheel setuptools
