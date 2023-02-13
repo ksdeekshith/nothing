@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2  
       - uses: uraimo/run-on-arch-action@v2.2.0
-        name: Install dependencies and build grpc
+        name: Install dependencies and build wheels for bison
         id: build
         with:
           arch: s390x
