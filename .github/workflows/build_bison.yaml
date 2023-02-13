@@ -51,6 +51,7 @@ jobs:
             
             #creating setup.py for creating wheel for bison
             echo -e "\nfrom setuptools import setup\nsetup(\n  name='bison',\n  version='3.8',\n  description='The GNU Parser Generator',\n  author='GNU Project',\n  url='https://www.gnu.org/software/bison/',\n  packages=['build_bison'],\n  install_requires=[],\n)" >> setup.py
+            cat setup.py
             
             #creating wheel for bison latest version
             python3.9 setup.py bdist_wheel
