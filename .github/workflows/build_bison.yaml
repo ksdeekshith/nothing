@@ -60,8 +60,8 @@ jobs:
            ls /root/bison-${{ inputs.release }}/dist
   
             
-           WHEEL_PATH=$(find /root/bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl")
-           WHEEL_NAME=$(basename $(find /root/bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl"))
+           WHEEL_PATH=$(find /bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl")
+           WHEEL_NAME=$(basename $(find /bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl"))
            echo $WHEEL_PATH
            echo $WHEEL_NAME
            cp $WHEEL_PATH /artifacts/$WHEEL_NAME
