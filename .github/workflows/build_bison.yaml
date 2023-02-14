@@ -54,6 +54,10 @@ jobs:
             
            #creating wheel for bison latest version
            python3.9 setup.py bdist_wheel
+           
+           ls /root/
+           ls /root/bison-${{ inputs.release }}/
+           ls /root/bison-${{ inputs.release }}/dist
   
             
            WHEEL_PATH=$(find /root/bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl")
