@@ -57,8 +57,8 @@ jobs:
   
             
            WHEEL_PATH=$(find / -name "bison*.whl")
-           WHEEL_NAME=$(basename $(WHEEL_PATH))
            echo $WHEEL_PATH
+           WHEEL_NAME=$(basename $(find / -name "bison*.whl"))
            echo $WHEEL_NAME
            cp $WHEEL_PATH /artifacts/$WHEEL_NAME
            ls /artifacts/
