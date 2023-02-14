@@ -41,23 +41,23 @@ jobs:
            python3.9 -m pip install --upgrade pip
            python3.9 -m pip install -U wheel setuptools
            wget https://ftp.gnu.org/gnu/bison/bison-${{ inputs.release }}.tar.gz
-           tar -xzvf bison-${{ inputs.release }.tar.gz
-           cd bison-${{ inputs.release }
+           tar -xzvf bison-${{ inputs.release }}.tar.gz
+           cd bison-${{ inputs.release }}
            PATH=$PATH:/usr/local/m4/bin/
            ./configure --prefix=/usr/local/bison
            make
            make install
             
            #creating setup.py for creating wheel for bison
-           echo -e "\nfrom setuptools import setup\nsetup(\n  name='bison',\n  version='${{ inputs.release }',\n  description='The GNU Parser Generator',\n  author='GNU Project',\n  url='https://www.gnu.org/software/bison/',\n  packages=['/usr/local/bison'],\n  install_requires=[],\n)" >> setup.py
+           echo -e "\nfrom setuptools import setup\nsetup(\n  name='bison',\n  version='${{ inputs.release }}',\n  description='The GNU Parser Generator',\n  author='GNU Project',\n  url='https://www.gnu.org/software/bison/',\n  packages=['/usr/local/bison'],\n  install_requires=[],\n)" >> setup.py
            cat setup.py
             
            #creating wheel for bison latest version
            python3.9 setup.py bdist_wheel
   
             
-           WHEEL_PATH=$(find /root/bison-${{ inputs.release }/dist/ -name "bison-${{ inputs.release }}*.whl")
-           WHEEL_NAME=$(basename $(find /root/bison-${{ inputs.release }/dist/ -name "bison-${{ inputs.release }}*.whl"))
+           WHEEL_PATH=$(find /root/bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl")
+           WHEEL_NAME=$(basename $(find /root/bison-${{ inputs.release }}/dist/ -name "bison-${{ inputs.release }}*.whl"))
            echo $WHEEL_PATH
            echo $WHEEL_NAME
            cp $WHEEL_PATH /artifacts/$WHEEL_NAME
