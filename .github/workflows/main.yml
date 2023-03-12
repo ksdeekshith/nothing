@@ -1,0 +1,21 @@
+name: Example Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run script
+        env:
+          USERNAME: ${{ secrets.MY_USERNAME }}
+          PASSWORD: ${{ secrets.MY_PASSWORD }}
+        run: |
+          python test.py
+
