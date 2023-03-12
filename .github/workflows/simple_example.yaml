@@ -18,3 +18,11 @@ jobs:
         run: |
           pwd
           ls -lart
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Display new working directory
+        run: |
+          pwd
+          ls -lart
