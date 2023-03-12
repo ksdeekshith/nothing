@@ -1,0 +1,17 @@
+name: simple workflow example
+
+run-name: ${{ github.actor }} running an simple workflow example for GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Display:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Display Message
+        run: |
+          echo "Hello, World!"
