@@ -1,7 +1,5 @@
 name: simple workflow example
 
-run-name: ${{ github.actor }} running an simple workflow example for GitHub Actions
-
 on:
   push:
     branches:
@@ -15,3 +13,8 @@ jobs:
       - name: Display Message
         run: |
           echo "Hello, World!"
+
+      - name: Display working directory
+        run: |
+          pwd
+          ls -lart
