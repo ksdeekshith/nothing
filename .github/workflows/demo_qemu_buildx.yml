@@ -1,0 +1,21 @@
+name: demo_qemu_buildx
+
+on:
+  push:
+
+jobs:
+  qemu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test docker availablity
+        run: |
+          docker --version
+          docker info
+
+      - name: Enabling Experimental Features
+        run: | 
+          export DOCKER_CLI_EXPERIMENTAL=enabled
+
+      - name: Supported arhitectures by Docker to build 
+        run: |
+          docker buildx ls
