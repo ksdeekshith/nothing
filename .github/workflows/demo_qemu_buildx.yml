@@ -21,7 +21,7 @@ jobs:
           docker buildx ls
 
       - name: Setup QEMU
-        uses: actions/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v2
 
       - name: Now Supported architectures by Docker to build
         run: |
