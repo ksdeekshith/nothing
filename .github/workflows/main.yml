@@ -25,4 +25,4 @@ jobs:
           registry: quay.io
           organization: projectquay
           repository: golang
-          tag: ${{ matrix.versions }}
+          tag: ${{ matrix.version }}
