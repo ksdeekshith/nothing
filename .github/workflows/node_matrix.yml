@@ -1,6 +1,6 @@
 name: Node Application
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   test_matrix_node:
