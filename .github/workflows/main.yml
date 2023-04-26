@@ -26,3 +26,51 @@ jobs:
           organization: projectquay
           repository: golang
           tag: ${{ matrix.version }}
+
+  build_job:
+    runs-on: ubuntu-18.04
+    name: Build on ${{ matrix.distro }} ${{ matrix.arch }}
+    
+    strategy:
+      matrix:
+        version: ["1.18", "1.19", "1.20", "1.20-test"]
+        include:
+          - arch: aarch64
+            distro: ubuntu18.04
+          - arch: ppc64le
+            distro: alpine_latest
+          - arch: s390x
+            distro: fedora_latest
+          - arch: none
+            distro: none
+            base_image: riscv64/busybox
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Docker pull Test [arch]
+        uses: uraimo/run-on-arch-action@v2
+        id: test
+        with:
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
+          
+          githubToken: ${{ github.token }}
+          
+          env: |
+            artifact_name: git-${{ matrix.distro }}_${{ matrix.arch }}
+          
+          install: |
+            case "${{ matrix.distro }}" in
+              ubuntu*|jessie|stretch|buster|bullseye)
+                apt-get update -q -y
+                ;;
+              fedora*)
+                dnf -y update
+                ;;
+              alpine*)
+                apk update
+                ;;
+            esac
+          
+          run: |
+            docker pull quay.io/projectquay/golang:${{ matrix.version }}
