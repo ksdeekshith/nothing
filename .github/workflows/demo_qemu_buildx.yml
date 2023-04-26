@@ -1,7 +1,6 @@
 name: demo_qemu_buildx
 
-on:
-  push:
+on: workflow_dispatch
 
 jobs:
   qemu:
