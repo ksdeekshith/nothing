@@ -21,7 +21,7 @@ jobs:
       - name: Docker image exists
         uses: cloudposse/github-action-docker-image-exists@0.1.1
         with:
-          registry: registry.hub.docker.com
-          organization: quay.io/projectquay
+          registry: quay.io
+          organization: projectquay
           repository: golang
           tag: 1.20-test
