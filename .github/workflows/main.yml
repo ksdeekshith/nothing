@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
           matrix:
-            version: [1.18, 1.19, 1.20, 1.20-test]
+            version: ["1.18", "1.19", "1.20", "1.20-test"]
     
     steps:
       - name: Checkout code
