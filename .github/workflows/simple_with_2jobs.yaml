@@ -1,8 +1,6 @@
 name: Two Jobs Workflow
 
-on:
-  push:
-    branches: [ main ]
+on: workflow_dispatch
 
 jobs:
   build:
