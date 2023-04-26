@@ -1,9 +1,6 @@
 name: simple workflow example
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   Display:
