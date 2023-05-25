@@ -7,11 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-#       - name: Circle CI
-#         id: trigger_circle_ci
-#         uses: circleci/trigger_circleci_pipeline@v1.0
-#         env:
-#           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
+      - name: Trigger CircleCI Pipeline
+        uses: circleci/trigger-circleci-pipeline@v1.0
+        with:
+          project: nothing
+          branch: ${{ github.ref }}
+          token: ${{ secrets.CCI_TOKEN }}
