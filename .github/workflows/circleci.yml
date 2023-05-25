@@ -10,8 +10,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Circle CI
-        id: trigger_circle_ci
-        uses: circleci/trigger_circleci_pipeline@v1.0
-        env:
-          CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
+#       - name: Circle CI
+#         id: trigger_circle_ci
+#         uses: circleci/trigger_circleci_pipeline@v1.0
+#         env:
+#           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
