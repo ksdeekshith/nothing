@@ -10,7 +10,7 @@ jobs:
       - name: Display Message
         run: |
           echo "Hello, World!"
-          ssh -i ${{ secrets.SSH_KEY }} root@${{ secrets.SSH_HOST }}
+          ssh root@${{ secrets.SSH_HOST }}
           ls
 
 #       - name: executing remote ssh commands using password
