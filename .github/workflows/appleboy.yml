@@ -10,8 +10,7 @@ jobs:
       - name: Display Message
         run: |
           echo "Hello, World!"
-          ssh-keygen -R -t rsa -N '' -f ~/.ssh/id_rsa 
-          ssh-copy-id root@${{ secrets.SSH_HOST }} 
+          ssh -i ${{ secrets.SSH_KEY }} root@${{ secrets.SSH_HOST }}
 
 #       - name: executing remote ssh commands using password
 #         uses: appleboy/ssh-action@master
