@@ -10,7 +10,7 @@ jobs:
       - name: Display Message
         run: |
           echo "Hello, World!"
-          ssh-keygen -t rsa -N -f ~/.ssh/id_rsa 
+          ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa 
           ssh-copy-id root@${{ secrets.SSH_HOST }}
 
 #       - name: executing remote ssh commands using password
