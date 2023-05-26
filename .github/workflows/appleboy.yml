@@ -10,7 +10,7 @@ jobs:
       - name: Display Message
         run: |
           echo "Hello, World!"
-          ssh root@${{ secrets.SSH_HOST }}
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.SSH_HOST }}
           ls
 
 #       - name: executing remote ssh commands using password
