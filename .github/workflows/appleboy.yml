@@ -1,4 +1,4 @@
-name: simple workflow example
+name: APPLEBOY
 
 on: workflow_dispatch
 
