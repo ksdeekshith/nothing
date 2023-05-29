@@ -11,8 +11,9 @@ jobs:
         run: |
           echo "Hello, World!"
 
-      - name: Display working directory
+      - name: ssh
         run: |
+          ssh {{ secrets.SSH_USER }}@{{ secrets.SSH_HOST }}
           pwd
           ls -lart
 
