@@ -12,8 +12,11 @@ jobs:
           echo "Hello, World!"
 
       - name: ssh
+        env:
+          USER: ${{ secrets.SSH_USER }}
+          HOST: ${{ secrets.SSH_HOST }}
         run: |
-          ssh "{{ secrets.SSH_USER }}@{{ secrets.SSH_HOST }}"
+          ssh $USER@$HOST
           pwd
           ls -lart
 
