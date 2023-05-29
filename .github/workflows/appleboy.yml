@@ -16,10 +16,22 @@ jobs:
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
+        env:
+          VERSION: v4.14.2
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          envs: VERSION
           script: |
-            git 
+            #Checkout 
+            git clone https://github.com/ksdeekshith/quay-operator.git
+            
+            #Install yq
+            ARCH=$(uname -m)
+            if [ "$ARCH" == "x86_64" ] ; then ARCH="amd64" ; elif [ "$ARCH" == "aarch64" ] ; then ARCH="arm64" ; fi
+            wget https://github.com/mikefarah/yq/releases/download/${VERSION}/yq_linux_${ARCH} -O /usr/local/bin/yq
+            chmod +x /usr/local/bin/yq
+            yq --version
+            
             
