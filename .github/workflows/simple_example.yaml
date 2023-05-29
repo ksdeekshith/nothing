@@ -23,5 +23,3 @@ jobs:
         run: |
           pwd
           ls -lart
-          top
-      
