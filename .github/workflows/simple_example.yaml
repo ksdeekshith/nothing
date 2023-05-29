@@ -13,7 +13,7 @@ jobs:
 
       - name: ssh
         run: |
-          ssh {{ secrets.SSH_USER }}@{{ secrets.SSH_HOST }}
+          ssh "{{ secrets.SSH_USER }}@{{ secrets.SSH_HOST }}"
           pwd
           ls -lart
 
