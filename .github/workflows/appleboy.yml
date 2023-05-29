@@ -26,6 +26,7 @@ jobs:
           script: |
             #Checkout 
             git clone https://github.com/ksdeekshith/quay-operator.git
+            cd quay-operator && ls -lart && git log && cd $HOME
             
             #Install yq
             ARCH=$(uname -m)
@@ -33,5 +34,4 @@ jobs:
             wget https://github.com/mikefarah/yq/releases/download/${VERSION}/yq_linux_${ARCH} -O /usr/local/bin/yq
             chmod +x /usr/local/bin/yq
             yq --version
-            
             
