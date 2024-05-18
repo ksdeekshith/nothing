@@ -12,9 +12,11 @@ jobs:
           KEY: ${{ secrets.SATYAM_KEY }}
         run: |
           whoami;
-          ls
+          ls-la
           echo "$KEY" > secret
           chmod 600 secret
-          ls
+          ls -la
           cat secret
           ssh -V
+          ssh -i secret root@141.125.111.100
+          ls -la
