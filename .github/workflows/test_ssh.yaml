@@ -12,7 +12,7 @@ jobs:
           KEY: ${{ secrets.SATYAM_KEY }}
         run: |
           whoami;
-          ls-la
+          ls -la
           echo "$KEY" > secret
           chmod 600 secret
           ls -la
