@@ -18,5 +18,5 @@ jobs:
           ls -la
           cat secret
           ssh -V
-          ssh -i secret root@141.125.111.100
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i secret root@141.125.111.100
           ls -la
